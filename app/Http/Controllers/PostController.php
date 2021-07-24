@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Resources\PostResource;
+
 
 class PostController extends Controller
 {
@@ -15,9 +17,10 @@ class PostController extends Controller
     public function index()
     {
         // get all posts
-        return Post::all();
-    }
+        $posts = Post::all();
 
+        return PostResource::collection($posts);
+    }
     /**
      * Store a newly created resource in storage.
      *
