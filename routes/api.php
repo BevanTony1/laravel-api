@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Post;
+use App\Models\Delivery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('/posts', 'PostController');
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::resource('/users', 'UserController');
+Route::resource('/delivery','DeliveryController');
+
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
